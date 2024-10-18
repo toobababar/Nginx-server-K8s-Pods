@@ -44,7 +44,8 @@ Start by setting up Minikube and configuring your terminal to use its Docker env
    minikube start --driver=docker
    
 2. Point your Docker CLI to use Minikube's Docker daemon:
-   ```eval $(minikube -p minikube docker-env)
+   ```bash
+   eval $(minikube -p minikube docker-env)
 
 ### Step 2: Build Docker Image
 
@@ -55,7 +56,8 @@ The NGINX image will be built locally within Minikube's Docker environment.
    cd Nginx-Server-Project
 
 2. Build the Docker image:
-   ```docker build -t nginx-k8s .
+   ```bash
+   docker build -t nginx-k8s .
 
 This command will create a Docker image named nginx-k8s.
 
@@ -64,37 +66,46 @@ This command will create a Docker image named nginx-k8s.
 Deploy the NGINX container to a Kubernetes pod using the following command:
 
 1. Apply the Kubernetes deployment configuration file:
-   ```kubectl apply -f nginx-deployment.yaml
+   ```bash
+   kubectl apply -f nginx-deployment.yaml
 
 2. Verify that the deployment and pods are running:
-   ```kubectl get deployments
-   ```kubectl get pods
+   ```bash
+   kubectl get deployments
+   ```bash
+   kubectl get pods
 
 ### Step 4: Expose the deployment
 
 Expose the running NGINX deployment as a service using NodePort to allow external access:
 
-```kubectl expose deployment nginx-deployment --type=NodePort --port=80
+```bash
+kubectl expose deployment nginx-deployment --type=NodePort --port=80
 
 You can verify that the service was created by running:
 
-```kubectl get services
+```bash
+kubectl get services
 
 ### Step 5: Access the NGNIX Service:
 
 You can access the service using Minikube’s IP and the assigned NodePort.
 
 1. Get Minikube's IP address:
-```minikube ip
+```bash
+minikube ip
 
 2. Check the port on which the service is exposed (e.g., 30008):
-```kubectl get services
+```bash
+kubectl get services
 
 3. Access the NGINX service in your browser:
-```http://<minikube-ip>:<node-port>
+```php
+http://<minikube-ip>:<node-port>
 
 Alternatively, you can use the following command to automatically open the service in your browser:
-```minikube service nginx-deployment
+```bash
+minikube service nginx-deployment
 
 ## Project Files
 
