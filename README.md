@@ -78,10 +78,8 @@ Deploy the NGINX container to a Kubernetes pod using the following command:
 ### Step 4: Expose the deployment
 
 Expose the running NGINX deployment as a service using NodePort to allow external access:
-
 ```bash
 kubectl expose deployment nginx-deployment --type=NodePort --port=80
-
 
 You can verify that the service was created by running:
 
