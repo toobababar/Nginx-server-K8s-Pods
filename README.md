@@ -52,7 +52,8 @@ Start by setting up Minikube and configuring your terminal to use its Docker env
 The NGINX image will be built locally within Minikube's Docker environment.
 
 1. Clone this repository:
-   ```git clone https://github.com/toobababar/Nginx-server-K8s-Pods
+   ```bash
+   git clone https://github.com/toobababar/Nginx-server-K8s-Pods.git
    cd Nginx-Server-Project
 
 2. Build the Docker image:
@@ -72,22 +73,21 @@ Deploy the NGINX container to a Kubernetes pod using the following command:
 2. Verify that the deployment and pods are running:
    ```bash
    kubectl get deployments
-   ```bash
    kubectl get pods
 
 ### Step 4: Expose the deployment
 
 Expose the running NGINX deployment as a service using NodePort to allow external access:
-
 ```bash
 kubectl expose deployment nginx-deployment --type=NodePort --port=80
 
-You can verify that the service was created by running:
 
+You can verify that the service was created by running:
 ```bash
 kubectl get services
 
-### Step 5: Access the NGNIX Service:
+
+### Step 5: Access the NGINX Server
 
 You can access the service using Minikube’s IP and the assigned NodePort.
 
