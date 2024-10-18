@@ -83,11 +83,12 @@ kubectl expose deployment nginx-deployment --type=NodePort --port=80
 
 
 You can verify that the service was created by running:
+
 ```bash
 kubectl get services
 
 
-### Step 5: Access the NGINX Server:
+### ^*Step 5: Access the NGINX Server:**
 
 You can access the service using Minikube’s IP and the assigned NodePort.
 
