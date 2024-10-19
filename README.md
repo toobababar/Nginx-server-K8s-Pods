@@ -78,12 +78,14 @@ Deploy the NGINX container to a Kubernetes pod using the following command:
 ### Step 4: Expose the deployment
 
 1. Expose the running NGINX deployment as a service using NodePort to allow external access:
- ```bash
-kubectl expose deployment nginx-deployment --type=NodePort --port=80
 
-2. You can verify that the service was created by running:
-```bash
-kubectl get services
+   ```bash
+   kubectl expose deployment nginx-deployment --type=NodePort --port=80
+
+3. You can verify that the service was created by running:
+
+   ```bash
+   kubectl get services
 
 
 ### Step 5: Access the NGINX Server
@@ -91,20 +93,23 @@ kubectl get services
 You can access the service using Minikube’s IP and the assigned NodePort.
 
 1. Get Minikube's IP address:
-```bash
-minikube ip
+
+   ```bash
+   minikube ip
 
 2. Check the port on which the service is exposed (e.g., 30008):
-```bash
-kubectl get services
+
+   ```bash
+   kubectl get services
 
 3. Access the NGINX service in your browser:
-```php
-http://<minikube-ip>:<node-port>
+
+   ```php
+   http://<minikube-ip>:<node-port>
 
 Alternatively, you can use the following command to automatically open the service in your browser:
-```bash
-minikube service nginx-deployment
+
+       minikube service nginx-deployment
 
 ## Project Files
 
