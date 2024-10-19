@@ -54,7 +54,7 @@ The NGINX image will be built locally within Minikube's Docker environment.
 1. Clone this repository:
    ```bash
    git clone https://github.com/toobababar/Nginx-server-K8s-Pods.git
-   cd Nginx-Server-Project
+   cd Nginx-server-K8s-Pods
 
 2. Build the Docker image:
    ```bash
