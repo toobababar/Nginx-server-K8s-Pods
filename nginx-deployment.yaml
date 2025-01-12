@@ -15,9 +15,30 @@ spec:
       containers:
       - name: nginx
         image: nginx-k8s:latest
-        imagePullPolicy: Never 
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
+        securityContext:
+          runAsUser: 1000 # Prevents running as root
+          runAsGroup: 1000 # Ensures proper group assignment
+          allowPrivilegeEscalation: false # Disables privilege escalation
+          capabilities:
+            drop:
+            - ALL # Drops all default capabilities
+          readOnlyRootFilesystem: true # Ensures root filesystem is read-only
+        livenessProbe: # Adds a liveness probe
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources: # Adds CPU and memory limits
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
 ---
 apiVersion: v1
 kind: Service
