@@ -19,8 +19,8 @@ spec:
         ports:
         - containerPort: 80
         securityContext:
-          runAsUser: 1000 # Prevents running as root
-          runAsGroup: 1001 # Ensures proper group assignment
+          runAsUser: 10000 # Prevents running as root
+          runAsGroup: 10001 # Ensures proper group assignment
           allowPrivilegeEscalation: false # Disables privilege escalation
           capabilities:
             drop:
